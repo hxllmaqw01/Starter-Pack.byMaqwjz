@@ -1,94 +1,97 @@
-#!/data/data/com.termux/files/usr/bin/bash
+
+            #!/data/data/com.termux/files/usr/bin/bash
+
+# 🎨 Rəng kodları
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[1;36m'
+RESET='\033[0m'
 
 clear
-echo -e "
-$$\\      $$\\  $$$$$$\\   $$$$$$\\  $$\\      $$\\    $$$$$\\ $$$$$$$$\\ 
-$$$\\    $$$ |$$  __$$\\ $$  __$$\\ $$ | $\\  $$ |   \\__$$ |\\____$$  |
-$$$$\\  $$$$ |$$ /  $$ |$$ /  $$ |$$ |$$$\\ $$ |      $$ |    $$  / 
-$$\\$$\\$$ $$ |$$$$$$$$ |$$ |  $$ |$$ $$ $$\\$$ |      $$ |   $$  /  
-$$ \\$$$  $$ |$$  __$$ |$$ |  $$ |$$$$  _$$$$ |$$\\   $$ |  $$  /   
-$$ |\\$  /$$ |$$ |  $$ |$$ $$\\$$ |$$$  / \\$$$ |$$ |  $$ | $$  /    
-$$ | \\_/ $$ |$$ |  $$ |\\$$$$$$ / $$  /   \\$$ |\\$$$$$$  |$$$$$$$$\\ 
-\\__|     \\__|\\__|  \\__| \\___$$$\\ \\__/     \\__| \\______/ \\________|
-                            \\___|                                 
-                                                                  
-"
+echo -e "${RED}███${YELLOW}╗   ${RED}███${YELLOW}╗ ${GREEN} █████${CYAN}╗ ${RED} ██████${CYAN}╗ ${GREEN}██${CYAN}╗    ${GREEN}██${CYAN}╗${RESET}"
+echo -e "${RED}████${YELLOW}╗ ${RED}████${YELLOW}║${GREEN}██${CYAN}╔══${GREEN}██${CYAN}╗${RED}██${CYAN}╔═══${RED}██${CYAN}╗${GREEN}██${CYAN}║    ${GREEN}██${CYAN}║${RESET}"
+echo -e "${RED}██${YELLOW}╔${RED}████${YELLOW}╔${RED}██${YELLOW}║${GREEN}███████${CYAN}║${GREEN}██${CYAN}║   ${RED}██${CYAN}║${GREEN}██${CYAN}║ █╗ ${GREEN}██${CYAN}║${RESET}"
+echo -e "${RED}██${YELLOW}║╚${RED}██╔╝${YELLOW}██${RED}║${GREEN}██${CYAN}╔══${GREEN}██${CYAN}║${GREEN}██${CYAN}║   ${RED}██${CYAN}║${GREEN}██${CYAN}║███╗${GREEN}██${CYAN}║${RESET}"
+echo -e "${RED}██${YELLOW}║ ╚═╝ ${RED}██${YELLOW}║${GREEN}██${CYAN}║  ${GREEN}██${CYAN}║╚${RED}██████${CYAN}╔╝╚${GREEN}███╔███╔╝${RESET}"
+echo -e "${CYAN}╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚══╝╚══╝ ${RESET}"
 
-echo "Seçim et:"
-echo "1) Əsas Paketlər (git, python, php, nmap, hydra və s.)"
+echo -e "${YELLOW}=============================="
+echo -e "     ${GREEN}MAQWJZ Starter Pack"
+echo -e "${YELLOW}==============================${RESET}"
+
+echo
+echo -e "${CYAN}Seçim et:${RESET}"
+echo -e "${GREEN}1) Əsas Paketlər"
 echo "2) Sqlmap"
 echo "3) Zphisher"
 echo "4) Metasploit"
 echo "5) Ngrok"
-echo "0) Çıxış"
+echo -e "0) Çıxış${RESET}"
 echo
 
 read -p "Seçim et (0-5): " choice
 
 case $choice in
     1)
-        echo "📦 Əsas paketlər yoxlanılır..."
+        echo -e "${YELLOW}📦 Əsas paketlər yoxlanılır...${RESET}"
         pkg update -y && pkg upgrade -y
         pkg install git python python-pip php curl wget nano openssh clang hydra nmap unzip -y
-        echo "✅ Əsas paketlər hazırdır!"
+        echo -e "${GREEN}✅ Əsas paketlər hazırdır!${RESET}"
         ;;
     2)
-        echo "🔎 Sqlmap yoxlanılır..."
+        echo -e "${CYAN}🔎 Sqlmap yoxlanılır...${RESET}"
         if [ -d "$HOME/sqlmap" ]; then
-            echo "✅ Sqlmap artıq quraşdırılıb!"
-            cd ~/sqlmap
-            python3 sqlmap.py
+            echo -e "${GREEN}✅ Sqlmap artıq quraşdırılıb!${RESET}"
+            cd ~/sqlmap && python3 sqlmap.py
         else
             git clone https://github.com/sqlmapproject/sqlmap ~/sqlmap
-            echo "✅ Sqlmap quraşdırıldı!"
-            cd ~/sqlmap
-            python3 sqlmap.py
+            echo -e "${GREEN}✅ Sqlmap quraşdırıldı!${RESET}"
+            cd ~/sqlmap && python3 sqlmap.py
         fi
         ;;
     3)
-        echo "🔎 Zphisher yoxlanılır..."
+        echo -e "${CYAN}🔎 Zphisher yoxlanılır...${RESET}"
         if [ -d "$HOME/zphisher" ]; then
-            echo "✅ Zphisher artıq quraşdırılıb!"
-            cd ~/zphisher
-            bash zphisher.sh
+            echo -e "${GREEN}✅ Zphisher artıq quraşdırılıb!${RESET}"
+            cd ~/zphisher && bash zphisher.sh
         else
             git clone https://github.com/htr-tech/zphisher ~/zphisher
-            echo "✅ Zphisher quraşdırıldı!"
-            cd ~/zphisher
-            bash zphisher.sh
+            echo -e "${GREEN}✅ Zphisher quraşdırıldı!${RESET}"
+            cd ~/zphisher && bash zphisher.sh
         fi
         ;;
     4)
-        echo "🔎 Metasploit yoxlanılır..."
+        echo -e "${CYAN}🔎 Metasploit yoxlanılır...${RESET}"
         if command -v msfconsole >/dev/null 2>&1; then
-            echo "✅ Metasploit artıq quraşdırılıb!"
+            echo -e "${GREEN}✅ Metasploit artıq quraşdırılıb!${RESET}"
             msfconsole
         else
             pkg install unstable-repo -y
             pkg install metasploit -y
-            echo "✅ Metasploit quraşdırıldı!"
+            echo -e "${GREEN}✅ Metasploit quraşdırıldı!${RESET}"
             msfconsole
         fi
         ;;
     5)
-        echo "🔎 Ngrok yoxlanılır..."
+        echo -e "${CYAN}🔎 Ngrok yoxlanılır...${RESET}"
         if [ -f "$HOME/ngrok" ]; then
-            echo "✅ Ngrok artıq quraşdırılıb!"
+            echo -e "${GREEN}✅ Ngrok artıq quraşdırılıb!${RESET}"
             ./ngrok version
         else
             wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip
             unzip ngrok.zip
             chmod +x ngrok
             rm ngrok.zip
-            echo "✅ Ngrok quraşdırıldı!"
+            echo -e "${GREEN}✅ Ngrok quraşdırıldı!${RESET}"
             ./ngrok version
         fi
         ;;
     0)
-        echo "🚪 Çıxış edildi."
+        echo -e "${RED}🚪 Çıxış edildi.${RESET}"
         exit
         ;;
     *)
-        echo "⚠️ Yanlış seçim!"
+        echo -e "${RED}⚠️ Yanlış seçim!${RESET}"
         ;;
 esac
