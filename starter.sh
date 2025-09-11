@@ -1,18 +1,14 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# Rəng kodları
-CYAN='\033[1;36m'
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-RED='\033[1;31m'
-RESET='\033[0m'
-
-clear
-
-# Banner
-echo -e "${CYAN}============================================${RESET}"
-echo -e "          ${GREEN}M A Q W J Z${RESET} Starter Pack  Version: 2.3.5"
-echo -e "${CYAN}============================================${RESET}"
+  __  __                      _     
+ |  \/  |                    (_)    
+ | \  / | __ _  __ ___      ___ ____
+ | |\/| |/ _` |/ _` \ \ /\ / / |_  /
+ | |  | | (_| | (_| |\ V  V /| |/ / 
+ |_|  |_|\__,_|\__, | \_/\_/ | /___|
+                  | |       _/ |    
+                  |_|      |__/     
+                  
 echo -e "${YELLOW}[-] Tool Created by MaqwJz${RESET}"
 echo
 
