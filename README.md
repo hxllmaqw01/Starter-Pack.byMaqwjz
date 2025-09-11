@@ -39,6 +39,6 @@ This script installs the most commonly used tools in Termux with just one comman
 
 ```bash
 git clone https://github.com/hxllmaqw01/Starter-Pack.byMaqwjz.git
-cd Starter-Pack.byMaqwjz
+cd Tools.byMaqwjz
 chmod +x starter.sh
 bash starter.sh
