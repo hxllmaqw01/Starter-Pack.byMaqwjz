@@ -1,32 +1,44 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-  __  __                      _     
- |  \/  |                    (_)    
- | \  / | __ _  __ ___      ___ ____
- | |\/| |/ _` |/ _` \ \ /\ / / |_  /
- | |  | | (_| | (_| |\ V  V /| |/ / 
- |_|  |_|\__,_|\__, | \_/\_/ | /___|
-                  | |       _/ |    
-                  |_|      |__/     
-                  
+# 🎨 Rəng kodları
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+RED='\033[1;31m'
+RESET='\033[0m'
+
+clear
+
+# ASCII Banner
+echo -e "${CYAN}  __  __                      _     ${RESET}"
+echo -e "${CYAN} |  \\/  |                    (_)    ${RESET}"
+echo -e "${CYAN} | \\  / | __ _  __ ___      ___ ____${RESET}"
+echo -e "${CYAN} | |\\/| |/ _\` |/ _\` \\\\ \\ /\\ / / |_  /${RESET}"
+echo -e "${CYAN} | |  | | (_| | (_| |\\ V  V /| |/ / ${RESET}"
+echo -e "${CYAN} |_|  |_|\\__,_|\\__, | \\_/\\_/ | /___|${RESET}"
+echo -e "${CYAN}                  | |       _/ |    ${RESET}"
+echo -e "${CYAN}                  |_|      |__/     ${RESET}"
+echo
 echo -e "${YELLOW}[-] Tool Created by MaqwJz${RESET}"
 echo
 
 # Menyu
 echo -e "${CYAN}[01]${GREEN} Əsas Paketlər       ${CYAN}[02]${GREEN} Sqlmap"
-echo -e "${CYAN}[03]${GREEN} Zphisher            ${CYAN}[04]${GREEN} Metasploit"
+echo -e "${CYAN}[03]${GREEN} Nexphisher          ${CYAN}[04]${GREEN} Metasploit"
 echo -e "${CYAN}[05]${GREEN} Ngrok               ${CYAN}[00]${RED} Çıxış"
 echo
-read -p "[::] Seçim et: " choice
+
+# İstifadəçi seçim
+read -p "[::] Seçim et (0-5): " choice
 
 case $choice in
-    1)
+    01)
         echo -e "${YELLOW}📦 Əsas paketlər yoxlanılır...${RESET}"
         pkg update -y && pkg upgrade -y
         pkg install git python python-pip php curl wget nano openssh clang hydra nmap unzip -y
         echo -e "${GREEN}✅ Əsas paketlər hazırdır!${RESET}"
         ;;
-    2)
+    02)
         echo -e "${CYAN}🔎 Sqlmap yoxlanılır...${RESET}"
         if [ -d "$HOME/sqlmap" ]; then
             cd ~/sqlmap && python3 sqlmap.py
@@ -35,16 +47,19 @@ case $choice in
             cd ~/sqlmap && python3 sqlmap.py
         fi
         ;;
-    3)
-        echo -e "${CYAN}🔎 Zphisher yoxlanılır...${RESET}"
-        if [ -d "$HOME/zphisher" ]; then
-            cd ~/zphisher && bash zphisher.sh
+    03)
+        echo -e "${CYAN}🔎 Nexphisher yoxlanılır...${RESET}"
+        if [ -d "$HOME/nexphisher" ]; then
+            cd ~/nexphisher && bash nexphisher
         else
-            git clone https://github.com/htr-tech/zphisher ~/zphisher
-            cd ~/zphisher && bash zphisher.sh
+            git clone https://github.com/htr-tech/nexphisher ~/nexphisher
+            cd ~/nexphisher
+            chmod +x *
+            bash tmux_setup
+            bash nexphisher
         fi
         ;;
-    4)
+    04)
         echo -e "${CYAN}🔎 Metasploit yoxlanılır...${RESET}"
         if command -v msfconsole >/dev/null 2>&1; then
             msfconsole
@@ -54,7 +69,7 @@ case $choice in
             msfconsole
         fi
         ;;
-    5)
+    05)
         echo -e "${CYAN}🔎 Ngrok yoxlanılır...${RESET}"
         if [ -f "$HOME/ngrok" ]; then
             ./ngrok version
