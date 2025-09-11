@@ -1,4 +1,4 @@
-# Starter-Pack-byMaqwjz 🔥
+# Tools-byMaqwjz 🔥
 
 Welcome to **Maqwjz Starter Pack** – an automatic Termux hacker tools installer for beginners and pentesters.  
 This script installs the most commonly used tools in Termux with just one command. 🚀
