@@ -1,26 +1,22 @@
-
-            #!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # 🎨 Rəng kodları
-RED='\033[1;31m'
+CYAN='\033[1;36m'
 GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
-CYAN='\033[1;36m'
+RED='\033[1;31m'
 RESET='\033[0m'
 
+# Clear terminal
 clear
-echo -e "${RED}███${YELLOW}╗   ${RED}███${YELLOW}╗ ${GREEN} █████${CYAN}╗ ${RED} ██████${CYAN}╗ ${GREEN}██${CYAN}╗    ${GREEN}██${CYAN}╗${RESET}"
-echo -e "${RED}████${YELLOW}╗ ${RED}████${YELLOW}║${GREEN}██${CYAN}╔══${GREEN}██${CYAN}╗${RED}██${CYAN}╔═══${RED}██${CYAN}╗${GREEN}██${CYAN}║    ${GREEN}██${CYAN}║${RESET}"
-echo -e "${RED}██${YELLOW}╔${RED}████${YELLOW}╔${RED}██${YELLOW}║${GREEN}███████${CYAN}║${GREEN}██${CYAN}║   ${RED}██${CYAN}║${GREEN}██${CYAN}║ █╗ ${GREEN}██${CYAN}║${RESET}"
-echo -e "${RED}██${YELLOW}║╚${RED}██╔╝${YELLOW}██${RED}║${GREEN}██${CYAN}╔══${GREEN}██${CYAN}║${GREEN}██${CYAN}║   ${RED}██${CYAN}║${GREEN}██${CYAN}║███╗${GREEN}██${CYAN}║${RESET}"
-echo -e "${RED}██${YELLOW}║ ╚═╝ ${RED}██${YELLOW}║${GREEN}██${CYAN}║  ${GREEN}██${CYAN}║╚${RED}██████${CYAN}╔╝╚${GREEN}███╔███╔╝${RESET}"
-echo -e "${CYAN}╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚══╝╚══╝ ${RESET}"
 
-echo -e "${YELLOW}=============================="
-echo -e "     ${GREEN}MAQWJZ Starter Pack"
-echo -e "${YELLOW}==============================${RESET}"
-
+# ASCII Banner
+echo -e "${CYAN}======================================${RESET}"
+echo -e "        ${GREEN}M A Q W J Z${RESET}  ${YELLOW}Starter Pack${RESET}"
+echo -e "${CYAN}======================================${RESET}"
 echo
+
+# Menyu
 echo -e "${CYAN}Seçim et:${RESET}"
 echo -e "${GREEN}1) Əsas Paketlər"
 echo "2) Sqlmap"
@@ -30,6 +26,7 @@ echo "5) Ngrok"
 echo -e "0) Çıxış${RESET}"
 echo
 
+# İstifadəçi seçim
 read -p "Seçim et (0-5): " choice
 
 case $choice in
