@@ -24,13 +24,13 @@ echo
 read -p "[::] Seçim et: " choice
 
 case $choice in
-    01)
+    1)
         echo -e "${YELLOW}📦 Əsas paketlər yoxlanılır...${RESET}"
         pkg update -y && pkg upgrade -y
         pkg install git python python-pip php curl wget nano openssh clang hydra nmap unzip -y
         echo -e "${GREEN}✅ Əsas paketlər hazırdır!${RESET}"
         ;;
-    02)
+    2)
         echo -e "${CYAN}🔎 Sqlmap yoxlanılır...${RESET}"
         if [ -d "$HOME/sqlmap" ]; then
             cd ~/sqlmap && python3 sqlmap.py
@@ -39,7 +39,7 @@ case $choice in
             cd ~/sqlmap && python3 sqlmap.py
         fi
         ;;
-    03)
+    3)
         echo -e "${CYAN}🔎 Zphisher yoxlanılır...${RESET}"
         if [ -d "$HOME/zphisher" ]; then
             cd ~/zphisher && bash zphisher.sh
@@ -48,7 +48,7 @@ case $choice in
             cd ~/zphisher && bash zphisher.sh
         fi
         ;;
-    04)
+    4)
         echo -e "${CYAN}🔎 Metasploit yoxlanılır...${RESET}"
         if command -v msfconsole >/dev/null 2>&1; then
             msfconsole
@@ -58,7 +58,7 @@ case $choice in
             msfconsole
         fi
         ;;
-    05)
+    5)
         echo -e "${CYAN}🔎 Ngrok yoxlanılır...${RESET}"
         if [ -f "$HOME/ngrok" ]; then
             ./ngrok version
