@@ -38,6 +38,7 @@ This script installs the most commonly used tools in Termux with just one comman
 ## 📥 Installation
 
 ```bash
-git clone https://github.com/hxllmaqw01/Termux-StarterPackbyMaqwjz
-cd Termux-StarterPackbyMaqwjz
-bash Maqwjz
+git clone https://github.com/hxllmaqw01/Starter-Pack.byMaqwjz.git
+cd Starter-Pack.byMaqwjz
+chmod +x starter.sh
+bash starter.sh
