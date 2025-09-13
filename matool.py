@@ -1,119 +1,100 @@
-import os
+#!/bin/bash
 
-CYAN = "\033[96m"
-GREEN = "\033[92m"
-RED = "\033[91m"
-RESET = "\033[0m"
+# Rənglər
+CYAN="\033[96m"
+GREEN="\033[92m"
+YELLOW="\033[93m"
+RED="\033[91m"
+RESET="\033[0m"
 
-def banner():
-    os.system("clear")
-    print(f"""{CYAN}
-__  __                      _     
-|  \/  |                    (_)    
-| \  / | __ _  __ ___      ___ ____ 
-| |\/| |/ _` |/ _` \ \ /\ / / |_  /
-| |  | | (_| | (_| |\ V  V /| |/ / 
-|_|  |_|\__,_|\__, | \_/\_/ | /___|
-                | |       _/ |     
-                |_|      |__/      
-{RESET}{GREEN}
-========================================
-     Tool created by MAQWJZ & NİKONSJZ
-========================================
-{RESET}""")
+# Banner funksiyası
+banner() {
+echo -e "${CYAN}"
+echo " __  __                      _     "
+echo "|  \/  |                    (_)    "
+echo "| \  / | __ _  __ ___      ___ ____ "
+echo "| |\/| |/ _\` |/ _\` \ \ /\ / / |_  /"
+echo "| |  | | (_| | (_| |\ V  V /| |/ / "
+echo "|_|  |_|\__,_|\__, | \_/\_/ | /___|"
+echo "                | |       _/ |     "
+echo "                |_|      |__/      "
+echo -e "${GREEN}"
+echo "========================================"
+echo "     Tool created by MAQWJZ & NIKONSJZ"
+echo "========================================"
+echo -e "${RESET}"
+}
 
-def menu():
-    print(f"""{CYAN}[::] Select an Option [::]{RESET}
-{GREEN}[00]{RESET} Install ALL Tools
-{GREEN}[01]{RESET} Install Nmap
-{GREEN}[02]{RESET} Install Hydra
-{GREEN}[03]{RESET} Install SQLMap
-{GREEN}[04]{RESET} Install Metasploit
-{GREEN}[05]{RESET} Install Ngrok
-{GREEN}[06]{RESET} Install Kali Nethunter
-{GREEN}[07]{RESET} Install angryFuzzer
-{GREEN}[08]{RESET} Install Red_Hawk
-{GREEN}[09]{RESET} Install Weeman
-{GREEN}[10]{RESET} Install IPGeoLocation
-{GREEN}[11]{RESET} Install Cupp
-{GREEN}[12]{RESET} Install Instahack
-{GREEN}[13]{RESET} Install TwitterSniper
-{GREEN}[14]{RESET} Install Ubuntu
-{GREEN}[15]{RESET} Install Fedora
-{GREEN}[16]{RESET} Install viSQL
-{GREEN}[17]{RESET} Install Hash-Buster
-{GREEN}[18]{RESET} Install D-TECT
-{GREEN}[19]{RESET} Install Routersploit
-------------------------------------------
-{GREEN}[99]{RESET} Exit
-""")
+# Spinner funksiyası
+spinner() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
 
-def install_all():
-    os.system("pkg update -y && pkg install -y git python python2 wget nmap hydra")
-    os.system("cd ~ && git clone https://github.com/sqlmapproject/sqlmap.git")
-    os.system("cd ~ && wget https://Auxilus.github.io/metasploit.sh && bash metasploit.sh")
-    os.system("cd ~ && git clone https://github.com/themastersunil/ngrok.git")
-    os.system("cd ~ && git clone https://github.com/ihebski/angryFuzzer.git && cd angryFuzzer && pip2 install -r requirements.txt && pip2 install requests")
-    os.system("cd ~ && git clone https://github.com/Tuhinshubhra/RED_HAWK")
-    os.system("cd ~ && git clone https://github.com/evait-security/weeman.git && chmod +x weeman/weeman.py")
-    os.system("cd ~ && git clone https://github.com/maldevel/IPGeoLocation.git && cd IPGeoLocation && pip install -r requirements.txt")
-    os.system("cd ~ && git clone https://github.com/Mebus/cupp.git")
-    os.system("pip install requests beautifulsoup4 mechanicalsoup")
-    os.system("cd ~ && git clone https://github.com/avramit/instahack.git")
-    os.system("cd ~ && git clone https://github.com/abdallahelsokary/TwitterSniper.git")
-    os.system("cd ~ && git clone https://github.com/blackvkng/viSQL.git")
-    os.system("cd ~ && git clone https://github.com/UltimateHackers/Hash-Buster.git")
-    os.system("cd ~ && git clone https://github.com/shawarkhanethicalhacker/D-TECT.git")
-    os.system("cd ~ && git clone https://github.com/reverse-shell/routersploit.git && cd routersploit && pip2 install -r requirements.txt -r requirements-dev.txt")
-    print(f"{GREEN}[+] All tools installed successfully!{RESET}")
+# Tool yoxlama və yükləmə funksiyası
+install_tool() {
+    local name=$1
+    local repo=$2
+    local cmd=$3
 
-while True:
-    banner()
-    menu()
-    choice = input(f"{CYAN}Select Option > {RESET}")
-    if choice == "00":
-        install_all()
-    elif choice == "01":
-        os.system("pkg install -y nmap")
-    elif choice == "02":
-        os.system("pkg install -y hydra")
-    elif choice == "03":
-        os.system("cd ~ && git clone https://github.com/sqlmapproject/sqlmap.git")
-    elif choice == "04":
-        os.system("cd ~ && wget https://Auxilus.github.io/metasploit.sh && bash metasploit.sh")
-    elif choice == "05":
-        os.system("cd ~ && git clone https://github.com/themastersunil/ngrok.git")
-    elif choice == "06":
-        os.system("cd ~ && git clone https://github.com/Hax4us/Nethunter-In-Termux.git && cd Nethunter-In-Termux && chmod +x kalinethunter")
-    elif choice == "07":
-        os.system("cd ~ && git clone https://github.com/ihebski/angryFuzzer.git && cd angryFuzzer && pip2 install -r requirements.txt")
-    elif choice == "08":
-        os.system("cd ~ && git clone https://github.com/Tuhinshubhra/RED_HAWK")
-    elif choice == "09":
-        os.system("cd ~ && git clone https://github.com/evait-security/weeman.git && chmod +x weeman/weeman.py")
-    elif choice == "10":
-        os.system("cd ~ && git clone https://github.com/maldevel/IPGeoLocation.git && cd IPGeoLocation && pip install -r requirements.txt")
-    elif choice == "11":
-        os.system("cd ~ && git clone https://github.com/Mebus/cupp.git")
-    elif choice == "12":
-        os.system("cd ~ && git clone https://github.com/avramit/instahack.git")
-    elif choice == "13":
-        os.system("cd ~ && git clone https://github.com/abdallahelsokary/TwitterSniper.git")
-    elif choice == "14":
-        os.system("cd ~ && git clone https://github.com/Neo-Oli/termux-ubuntu.git && cd termux-ubuntu && bash ubuntu.sh")
-    elif choice == "15":
-        os.system("apt update && apt install wget -y && wget https://raw.githubusercontent.com/nmilosev/termux-fedora/master/termux-fedora.sh")
-    elif choice == "16":
-        os.system("cd ~ && git clone https://github.com/blackvkng/viSQL.git")
-    elif choice == "17":
-        os.system("cd ~ && git clone https://github.com/UltimateHackers/Hash-Buster.git")
-    elif choice == "18":
-        os.system("cd ~ && git clone https://github.com/shawarkhanethicalhacker/D-TECT.git")
-    elif choice == "19":
-        os.system("cd ~ && git clone https://github.com/reverse-shell/routersploit.git && cd routersploit && pip2 install -r requirements.txt -r requirements-dev.txt")
-    elif choice == "99":
-        print(f"{RED}Exiting... Goodbye!{RESET}")
-        break
-    else:
-        print(f"{RED}[!] Invalid Option!{RESET}")
-    input(f"{CYAN}Press Enter to return to menu...{RESET}")
+    if [ ! -d "$HOME/$name" ]; then
+        echo -e "${YELLOW}[+] Installing $name...${RESET}"
+        git clone $repo "$HOME/$name" & spinner $!
+        echo -e "${GREEN}[+] $name installed successfully!${RESET}"
+    else
+        echo -e "${GREEN}[!] $name already installed.${RESET}"
+    fi
+    echo -e "${CYAN}[+] Launching $name...${RESET}"
+    cd "$HOME/$name"
+    eval $cmd
+    cd ~
+}
+
+# Menü funksiyası
+menu() {
+banner
+echo -e "${CYAN}==========================================${RESET}"
+echo -e "[01] Nmap           [02] Hydra           [03] SQLMap          [04] Metasploit"
+echo -e "[05] ngrok          [06] angryFuzzer     [07] Red_Hawk        [08] Weeman"
+echo -e "[09] IPGeoLocation  [10] Cupp            [11] Instahack       [12] TwitterSniper"
+echo -e "[13] viSQL          [14] Hash-Buster     [15] D-TECT          [16] Routersploit"
+echo -e "[17] Zphisher       [18] Nexphisher      [99] Exit"
+echo -e "${CYAN}==========================================${RESET}"
+}
+
+# Main loop
+while true; do
+    menu
+    read -p "#: " choice
+    case $choice in
+        1) install_tool "nmap" "" "pkg install -y nmap" ;;
+        2) install_tool "hydra" "" "pkg install -y hydra" ;;
+        3) install_tool "sqlmap" "https://github.com/sqlmapproject/sqlmap.git" "python2 sqlmap.py" ;;
+        4) install_tool "metasploit" "https://Auxilus.github.io/metasploit.sh" "bash metasploit.sh" ;;
+        5) install_tool "ngrok" "https://github.com/themastersunil/ngrok.git" "./ngrok" ;;
+        6) install_tool "angryFuzzer" "https://github.com/ihebski/angryFuzzer.git" "python2 angryFuzzer.py" ;;
+        7) install_tool "RED_HAWK" "https://github.com/Tuhinshubhra/RED_HAWK.git" "php rhawk.php" ;;
+        8) install_tool "weeman" "https://github.com/evait-security/weeman.git" "python2 weeman.py" ;;
+        9) install_tool "IPGeoLocation" "https://github.com/maldevel/IPGeoLocation.git" "python ipgeolocation.py" ;;
+        10) install_tool "cupp" "https://github.com/Mebus/cupp.git" "python cupp3.py" ;;
+        11) install_tool "instahack" "https://github.com/avramit/instahack.git" "python hackinsta.py" ;;
+        12) install_tool "TwitterSniper" "https://github.com/abdallahelsokary/TwitterSniper.git" "python TwitterSniper.py" ;;
+        13) install_tool "viSQL" "https://github.com/blackvkng/viSQL.git" "python2 viSQL.py --help" ;;
+        14) install_tool "Hash-Buster" "https://github.com/UltimateHackers/Hash-Buster.git" "python2 hash-buster.py" ;;
+        15) install_tool "D-TECT" "https://github.com/shawarkhanethicalhacker/D-TECT.git" "python2 d-tect.py" ;;
+        16) install_tool "routersploit" "https://github.com/reverse-shell/routersploit.git" "python2 rsf.py" ;;
+        17) install_tool "zphisher" "https://github.com/htr-tech/zphisher.git" "bash zphisher.sh" ;;
+        18) install_tool "nexphisher" "https://github.com/htr-tech/nexphisher.git" "bash nexphisher" ;;
+        99) echo -e "${RED}Exiting... Goodbye!${RESET}"; exit 0 ;;
+        *) echo -e "${RED}[!] Invalid option.${RESET}"; sleep 1 ;;
+    esac
+done
