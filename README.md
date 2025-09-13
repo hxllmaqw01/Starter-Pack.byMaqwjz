@@ -1,44 +1,39 @@
-# Tools-byMaqwjz 🔥
+# MAQWJZ Starter Pack  
 
-Welcome to **Maqwjz Starter Pack** – an automatic Termux hacker tools installer for beginners and pentesters.  
-This script installs the most commonly used tools in Termux with just one command. 🚀
+**Created by:** MAQWJZ & NIKONSJZ  
 
----
-
-## 📌 Included Tools & Usage
-
-### 🛠️ Essential Packages
-- **git, python, php, curl, wget, nano, openssh, clang, unzip**  
-  Required base packages to run most tools and scripts.
+This project is a Termux Starter Pack that installs the most essential hacking and pentesting tools with one command.  
+Perfect for beginners who want to turn their Android device into a portable hacking machine.  
 
 ---
 
-### 🔍 Recon & Scanning
-- **Nmap** – Port scanner, network discovery tool.  
-- **Sqlmap** – Automated SQL injection and database takeover tool.
+## 🔧 Included Tools
+- **Nmap** – Network scanner (find open ports and hosts)
+- **Hydra** – Password brute-force tool
+- **SQLMap** – Automated SQL Injection tester
+- **Metasploit** – Exploitation framework
+- **ngrok** – Expose localhost to the internet
+- **angryFuzzer** – Subdomain & directory brute-force
+- **RED_HAWK** – Website information gathering tool
+- **Weeman** – Phishing framework
+- **IPGeoLocation** – Get geolocation of IP addresses
+- **Cupp** – Custom wordlist generator
+- **Instahack** – Instagram brute-forcer
+- **TwitterSniper** – Twitter brute-forcer
+- **Hash-Buster** – Hash cracker
+- **D-TECT** – Vulnerability scanner
+- **RouterSploit** – Router exploitation framework
+- **viSQL** – SQL vulnerability scanner
 
 ---
 
-### 🕵️‍♂️ Phishing & Social Engineering
-- **Zphisher** – Phishing tool with pre-made pages for Instagram, Facebook, TikTok, etc.
-
----
-
-### 💣 Exploitation
-- **Metasploit Framework** – The most powerful penetration testing framework for exploits & payloads.  
-- **Hydra** – Fast password brute-force tool for SSH, FTP, HTTP logins, etc.
-
----
-
-### 🌐 Tunneling
-- **Ngrok** – Expose your localhost to the internet with a public URL (for testing phishing or payloads).
-
----
-
-## 📥 Installation
+## 🚀 Installation
+Copy and paste this into Termux:
 
 ```bash
+pkg update -y && pkg upgrade -y
+pkg install git -y
 git clone https://github.com/hxllmaqw01/Starter-Pack.byMaqwjz.git
-cd Tools.byMaqwjz
-chmod +x starter.sh
-bash starter.sh
+cd Starter-Pack.byMaqwjz
+chmod +x matool.sh
+bash matool.sh
